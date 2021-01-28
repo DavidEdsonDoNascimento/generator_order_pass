@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Configuração</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+</head>
+
+<body class="container">
+    
+    <h1 class="text-center">Configuração</h1>
+    
+    <div id="mensagemView"></div>
+    
+    <form class="form">
+        
+        <div class="form-group">
+            <label for="type_generator">Tipo de geração:</label>
+            <select name="type_generator" id="type_generator" class="form-control">
+                <option value="0">Randomica</option>
+                <option value="1">Sequencial</option>
+            </select>
+        </div>    
+        
+        <div class="form-group">
+            <label for="Hrs_to_reset">Horas até zerar contagem:</label>
+            <input type="text" id="Hrs_to_reset" class="form-control" value="1"/>
+        </div>
+        
+        <div class="form-group">
+            <label for="range_num_min">Range Min:</label>
+            <input id="range_num_min" type="number" class="form-control"   required />
+        </div>
+
+        <div class="form-group">
+            <label for="range_num_max">Range Max:</label>
+            <input id="range_num_max" type="number" class="form-control"  value="0" required />
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Incluir</button>
+    </form>
+
+    <br>
+    <br>
+
+    <div id="negociacoes"></div>
+
+    <script src="js/controllers/ProdutosController.js"></script>
+</body>
+</html>
