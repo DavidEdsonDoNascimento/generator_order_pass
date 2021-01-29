@@ -24,18 +24,18 @@
         </div>    
         
         <div class="form-group">
-            <label for="Hrs_to_reset">Horas até zerar contagem:</label>
-            <input type="text" id="Hrs_to_reset" class="form-control" value="1"/>
+            <label for="hrs_to_reset">Horas até zerar contagem:</label>
+            <input type="text" id="hrs_to_reset" class="form-control" value="1"/>
         </div>
         
         <div class="form-group">
             <label for="range_num_min">Range Min:</label>
-            <input id="range_num_min" type="number" class="form-control"   required />
+            <input id="range_num_min" type="number" class="form-control" value="1" min="1" />
         </div>
 
         <div class="form-group">
             <label for="range_num_max">Range Max:</label>
-            <input id="range_num_max" type="number" class="form-control"  value="0" required />
+            <input id="range_num_max" type="number" class="form-control"  value="100" min="0" />
         </div>
         
         <button class="btn btn-primary" type="submit">Incluir</button>
@@ -45,7 +45,10 @@
     <br>
 
     <div id="negociacoes"></div>
-
-    <script src="js/controllers/ProdutosController.js"></script>
+    
+    <script src="lib/jquery.min.js"></script>
+    <script src="js/models/ConfigurationOrderPass.js"></script>
+    <script src="js/controllers/OrderPassController.js"></script>
+    <script src="js/views/app.js"></script>
 </body>
 </html>
