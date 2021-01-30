@@ -4,4 +4,24 @@ class ConfigurationOrderPass
     {
 
     }
+
+    typeGenerator() : Number
+    {
+        return this._type_generator;
+    }
+
+    hrsToReset() : Number
+    {
+        return this._hrs_to_reset;
+    }
+
+    rangeNumMin() : Number
+    {
+        return this._range_num_min;
+    }
+
+    rangeNumMax() : Number
+    {
+        return this._range_num_max;
+    }
 }
