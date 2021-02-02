@@ -19,10 +19,10 @@ function getNextOrderPass()
         let configs = new ConfigurationOrderPass(type_generator, hrs_to_reset, range_num_min, range_num_max);
         let controller = new OrderPassController(configs);
 
-        let response = confirm('Bom dia!\nDeseja gerar uma senha com essas configurações?');
-
-        if(response)
-            console.log(controller.getNextOrderPass());
+        controller.getNextOrderPass.bind(controller);
+        //let response = confirm('Bom dia!\nDeseja gerar uma senha com essas configurações?');
+        //if(response)
+        //    controller.getNextOrderPass();
         
     });
 
