@@ -9,8 +9,9 @@ function getNextOrderPass() {
         let range_num_min = parseInt($('#range_num_min').val());
         let range_num_max = parseInt($('#range_num_max').val());
         let configs = new ConfigurationOrderPass(type_generator, hrs_to_reset, range_num_min, range_num_max);
+        let orders = $('.order_pass');
         let controller = new OrderPassController(configs);
-        controller.getNextOrderPass.bind(controller);
+        controller.getNextOrderPass();
         //let response = confirm('Bom dia!\nDeseja gerar uma senha com essas configurações?');
         //if(response)
         //    controller.getNextOrderPass();

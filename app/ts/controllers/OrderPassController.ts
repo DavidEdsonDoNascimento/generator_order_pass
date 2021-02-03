@@ -5,6 +5,7 @@ class OrderPassController
     private _configuration: ConfigurationOrderPass;
     private _orderPassView = new OrderPassView('#generated_order_pass');
     private _orders = new GeneratedOrders();
+    private _orderPass: OrderPass;
 
     constructor(configs: ConfigurationOrderPass)
     {
@@ -12,10 +13,8 @@ class OrderPassController
         this._orderPassView.update(this._orders);
     }
     
-    getNextOrderPass(event: Event): void
-    {
-        event.preventDefault();
-
+    getNextOrderPass(): void
+    {        
         if(this._configuration.typeGenerator() == 1){
             this.getNextOrderPassSequence();
         }
@@ -30,14 +29,14 @@ class OrderPassController
         let orders = this._orders.list();
 
         if(orders.length > 0){
-            const pass = orders.length;
-            const orderPass = new OrderPass(pass, new Date());
-            this._orders.add(orderPass);
+            const pass = orders.length + 1;
+            this._orderPass = new OrderPass(pass, new Date());
+            this._orders.add(this._orderPass);
             this._orderPassView.update(this._orders);
         }
         else{
-            const orderPass = new OrderPass(this._configuration.rangeNumMin(), new Date());
-            this._orders.add(orderPass);
+            this._orderPass = new OrderPass(this._configuration.rangeNumMin(), new Date());
+            this._orders.add(this._orderPass);
             this._orderPassView.update(this._orders);
         }
     }

@@ -11,15 +11,15 @@ class OrderPassView {
             <thead>
                 <tr>
                     <th scope="col">Senha</th>
-                    <th scope="col">Senha</th>
+                    <th scope="col">Gerada em:</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                ${model.list().map(order => {
-            return `<td>${order.pass()}</td>
-                        <td>${order.date()}</td>
-                    </tr>`;
+            ${model.list().map(order => {
+            return `<tr class="order_pass">
+                            <td id="pass">${order.pass()}</td>
+                            <td id="generated_date">${order.date()}</td>
+                        </tr>`;
         })}
             </tbody>
         </table>`;
