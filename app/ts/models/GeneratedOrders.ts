@@ -1,14 +1,14 @@
 class GeneratedOrders
 {
-    private _orders: OrderPass[] = [];
+    private static _orders: OrderPass[] = [];
 
     add(order_pass: OrderPass) : void
     {
-        this._orders.push(order_pass);
+        GeneratedOrders._orders.push(order_pass);
     }
 
     list() : OrderPass[]
     {
-        return this._orders;
+        return GeneratedOrders._orders;
     }
 }

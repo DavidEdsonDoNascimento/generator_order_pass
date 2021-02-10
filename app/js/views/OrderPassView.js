@@ -20,7 +20,8 @@ class OrderPassView {
                             <td id="pass">${order.pass()}</td>
                             <td id="generated_date">${order.date()}</td>
                         </tr>`;
-        })}
+        })
+            .join('')}
             </tbody>
         </table>`;
     }
