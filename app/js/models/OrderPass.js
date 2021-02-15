@@ -7,6 +7,6 @@ class OrderPass {
         return this._pass;
     }
     date() {
-        return this._date;
+        return `${this._date.getDay()}/${this._date.getMonth()}/${this._date.getFullYear()} ${this._date.getHours()}:${this._date.getMinutes()}:${this._date.getSeconds()}`;
     }
 }

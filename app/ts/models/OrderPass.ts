@@ -1,17 +1,17 @@
 class OrderPass
 {
-    constructor(private _pass: Number, private _date: Date)
+    constructor(private _pass: number, private _date: Date)
     {
 
     }
 
-    pass(): Number
+    pass(): number
     {
         return this._pass;
     }
 
-    date() : Date
+    date() : string
     {
-        return this._date;
+        return `${this._date.getDay()}/${this._date.getMonth()}/${this._date.getFullYear()} ${this._date.getHours()}:${this._date.getMinutes()}:${this._date.getSeconds()}` ;
     }
 }

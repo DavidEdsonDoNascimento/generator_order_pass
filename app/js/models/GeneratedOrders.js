@@ -5,5 +5,10 @@ class GeneratedOrders {
     list() {
         return GeneratedOrders._orders;
     }
+    lastQueue() {
+        if (this.list().length <= 0)
+            return;
+        return this.list()[this.list().length - 1];
+    }
 }
 GeneratedOrders._orders = [];

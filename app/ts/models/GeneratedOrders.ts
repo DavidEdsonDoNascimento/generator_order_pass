@@ -11,4 +11,12 @@ class GeneratedOrders
     {
         return GeneratedOrders._orders;
     }
+    
+    lastQueue() : OrderPass
+    {
+        if(this.list().length <= 0)
+        return;
+        return this.list()[this.list().length - 1];
+    }
+
 }

@@ -15,30 +15,18 @@ class OrderPassController
     
     getNextOrderPass(): void
     {        
-        if(this._configuration.typeGenerator() == 1){
-            this.getNextOrderPassSequence();
-        }
-        else
-        {
-            this.getNextOrderPassRandomic();
-        }
+        return (this._configuration.typeGenerator() == 1) ? this.getNextOrderPassSequence() : this.getNextOrderPassRandomic();
     }
 
     getNextOrderPassSequence(): void
     {
         let orders = this._orders.list();
 
-        if(orders.length > 0){
-            const pass = orders.length + 1;
-            this._orderPass = new OrderPass(pass, new Date());
-            this._orders.add(this._orderPass);
-            this._orderPassView.update(this._orders);
-        }
-        else{
-            this._orderPass = new OrderPass(this._configuration.rangeNumMin(), new Date());
-            this._orders.add(this._orderPass);
-            this._orderPassView.update(this._orders);
-        }
+        const pass = (orders.length > 0)? this._orders.lastQueue().pass() + 1 : this._configuration.rangeNumMin();
+            
+        this._orderPass = new OrderPass(pass, new Date());
+        this._orders.add(this._orderPass);
+        this._orderPassView.update(this._orders);
     }
 
     getNextOrderPassRandomic(): void
