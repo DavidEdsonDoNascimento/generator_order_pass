@@ -17,4 +17,15 @@ class ConfigurationOrderPass {
     rangeNumMax() {
         return this._range_num_max;
     }
+    getOrdersPossibilities() {
+        let possibilities = [];
+        for (let i = 0; i < this._range_num_max; i++) {
+            possibilities.push(i);
+        }
+        return possibilities;
+    }
+    differenceBetweenPossibilitiesAndQueue(queue) {
+        let result = this.getOrdersPossibilities().filter(e => !queue.find(a => e == a.pass()));
+        return result;
+    }
 }

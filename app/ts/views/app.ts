@@ -2,7 +2,15 @@
 $(document).ready(function() {
 
     getNextOrderPass();
-
+    
+    $('#btn-reset').on('click', function(){
+        let orders = new GeneratedOrders();
+        orders.reset();
+        let orderPassView = new OrderPassView('#generated_order_pass');
+        orderPassView.update(this._orders);
+        alert('Senhas zeradas com sucesso!');
+    });
+    
 });
 
 function getNextOrderPass() 
@@ -17,14 +25,18 @@ function getNextOrderPass()
 
         let configs = new ConfigurationOrderPass(type_generator, hrs_to_reset, range_num_min, range_num_max);
 
-        let orders = $('.order_pass');
         let controller = new OrderPassController(configs);
+        
+        let order_generated = controller.getNextOrderPass();
 
-        controller.getNextOrderPass();
+        if(!order_generated)
+            alert('as senhas acabaram');
+
+        //let orders = $('.order_pass');
+
         //let response = confirm('Bom dia!\nDeseja gerar uma senha com essas configurações?');
         //if(response)
         //    controller.getNextOrderPass();
         
     });
-
 }

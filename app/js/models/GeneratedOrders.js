@@ -5,6 +5,9 @@ class GeneratedOrders {
     list() {
         return GeneratedOrders._orders;
     }
+    reset() {
+        GeneratedOrders._orders = null;
+    }
     lastQueue() {
         if (this.list().length <= 0)
             return;

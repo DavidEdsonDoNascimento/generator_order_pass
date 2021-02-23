@@ -13,12 +13,12 @@ class OrderPassController
         this._orderPassView.update(this._orders);
     }
     
-    getNextOrderPass(): void
+    getNextOrderPass(): boolean
     {        
         return (this._configuration.typeGenerator() == 1) ? this.getNextOrderPassSequence() : this.getNextOrderPassRandomic();
     }
 
-    getNextOrderPassSequence(): void
+    getNextOrderPassSequence(): boolean
     {
         let orders = this._orders.list();
 
@@ -27,12 +27,23 @@ class OrderPassController
         this._orderPass = new OrderPass(pass, new Date());
         this._orders.add(this._orderPass);
         this._orderPassView.update(this._orders);
+        return true;
     }
 
-    getNextOrderPassRandomic(): void
+    getNextOrderPassRandomic(): boolean
     {
         let orders = this._orders.list();
-        //implementar a logica
+        
+        let diff = this._configuration.differenceBetweenPossibilitiesAndQueue(orders);
+        
+        if(diff.length <= 0) return false;
+
+        let pass = diff[Math.floor(Math.random() * diff.length)];
+
+        this._orderPass = new OrderPass(pass, new Date());
+        this._orders.add(this._orderPass);
+        this._orderPassView.update(this._orders);
+        return true;
     }
 
     

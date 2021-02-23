@@ -1,6 +1,6 @@
 class GeneratedOrders
 {
-    private static _orders: OrderPass[] = [];
+    private static _orders: OrderPass[] = [];    
 
     add(order_pass: OrderPass) : void
     {
@@ -12,11 +12,18 @@ class GeneratedOrders
         return GeneratedOrders._orders;
     }
     
+    reset() : void
+    {
+        GeneratedOrders._orders = null;
+    }
+    
     lastQueue() : OrderPass
     {
         if(this.list().length <= 0)
         return;
         return this.list()[this.list().length - 1];
     }
+
+    
 
 }
