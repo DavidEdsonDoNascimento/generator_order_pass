@@ -22,7 +22,11 @@ class OrderPassController
     {
         let orders = this._orders.list();
 
-        const pass = (orders.length > 0)? this._orders.lastQueue().pass() + 1 : this._configuration.rangeNumMin();
+        let diff = this._configuration.differenceBetweenPossibilitiesAndQueue(orders);
+
+        if(diff.length <= 0) return false;
+
+        const pass = (orders.length > 0)? diff[0] : this._configuration.rangeNumMin();
             
         this._orderPass = new OrderPass(pass, new Date());
         this._orders.add(this._orderPass);

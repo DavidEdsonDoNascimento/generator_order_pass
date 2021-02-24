@@ -14,7 +14,7 @@ class GeneratedOrders
     
     reset() : void
     {
-        GeneratedOrders._orders = null;
+        GeneratedOrders._orders = [];
     }
     
     lastQueue() : OrderPass
@@ -23,7 +23,5 @@ class GeneratedOrders
         return;
         return this.list()[this.list().length - 1];
     }
-
-    
 
 }

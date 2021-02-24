@@ -6,7 +6,7 @@ class GeneratedOrders {
         return GeneratedOrders._orders;
     }
     reset() {
-        GeneratedOrders._orders = null;
+        GeneratedOrders._orders = [];
     }
     lastQueue() {
         if (this.list().length <= 0)

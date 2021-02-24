@@ -30,7 +30,7 @@ class ConfigurationOrderPass
     {
         let possibilities = [];
 
-        for(let i = 0; i < this._range_num_max; i++)
+        for(let i = 1; i <= this._range_num_max; i++)
         {
             possibilities.push(i);
         }

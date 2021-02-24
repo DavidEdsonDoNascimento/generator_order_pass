@@ -4,7 +4,7 @@ $(document).ready(function () {
         let orders = new GeneratedOrders();
         orders.reset();
         let orderPassView = new OrderPassView('#generated_order_pass');
-        orderPassView.update(this._orders);
+        orderPassView.update(orders);
         alert('Senhas zeradas com sucesso!');
     });
 });
@@ -20,9 +20,5 @@ function getNextOrderPass() {
         let order_generated = controller.getNextOrderPass();
         if (!order_generated)
             alert('as senhas acabaram');
-        //let orders = $('.order_pass');
-        //let response = confirm('Bom dia!\nDeseja gerar uma senha com essas configurações?');
-        //if(response)
-        //    controller.getNextOrderPass();
     });
 }

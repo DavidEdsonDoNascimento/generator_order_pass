@@ -11,7 +11,7 @@ class OrderPassView {
             <thead>
                 <tr>
                     <th scope="col">Senha</th>
-                    <th scope="col">Gerada em:</th>
+                    <th scope="col">Gerada em</th>
                 </tr>
             </thead>
             <tbody>
